@@ -85,7 +85,16 @@ const EmployeesPage = () => {
                   </button>
                 </td>
                 <td>
-                  <input checked={employee.id === selectedEmployeeId} onChange={() => setSelectedEmployeeId(employee.id)} type="radio" name="employee-edit" />
+                  <input
+                    checked={employee.id === selectedEmployeeId}
+                    onChange={() => {
+                      setSelectedEmployeeId(employee.id);
+                      setEditTextInput(employee.name);
+                      setEditJobTextInput(employee.job);
+                    }}
+                    type="radio"
+                    name="employee-edit"
+                  />
                 </td>
               </tr>
             );
@@ -133,7 +142,7 @@ const EmployeesPage = () => {
       </table>
 
       {/* cek selected employeeId */}
-      <h3>{selectedEmployeeId}</h3>
+      {/* <h3>{selectedEmployeeId}</h3> */}
 
       {/* versi lebih singkat ternary */}
       {isLoading && <p>Loading fetch data...</p>}
